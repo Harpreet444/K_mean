@@ -5,7 +5,7 @@ import streamlit as st
 import numpy as np
 import joblib
 
-st.set_page_config(page_title="K_mean Clustering",page_icon='🧩',layout='centered')
+st.set_page_config(page_title="K_mean Clustering",page_icon='🧩',layout='wide')
 
 data_set = load_iris()
 df = pd.DataFrame(data_set.data,columns=data_set.feature_names)
