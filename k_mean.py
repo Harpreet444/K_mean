@@ -5,7 +5,7 @@ import streamlit as st
 import numpy as np
 import joblib
 
-st.set_page_config(page_title="K_mean Clustering",page_icon='🧩',layout='wide')
+st.set_page_config(page_title="K_mean Clustering",page_icon='🧩',layout='centered')
 
 data_set = load_iris()
 df = pd.DataFrame(data_set.data,columns=data_set.feature_names)
@@ -26,20 +26,6 @@ col1.markdown("<h2 style='text-align: center; color: green;'>Scatter Graph</h2>"
 df0 = df[df.target == 0]
 df1 = df[df.target == 1]
 df2 = df[df.target == 2]
-
-# fig, ax = plt.subplot()
-
-# ax.scatter(df0['petal length (cm)'], df0['petal width (cm)'], color='g', marker='*', label=data_set.target_names[0])
-# ax.scatter(df1['petal length (cm)'], df1['petal width (cm)'], color='r', marker='+', label=data_set.target_names[1])
-# ax.scatter(df2['petal length (cm)'], df2['petal width (cm)'], color='b', marker='o', label=data_set.target_names[2])
-
-# ax.xlabel('petal length (cm)')
-# ax.ylabel('petal width (cm)')
-# ax.legend()
-# col1.pyplot(fig)
-
-import matplotlib.pyplot as plt
-import streamlit as st
 
 fig, ax = plt.subplots()
 
@@ -78,7 +64,7 @@ col2.pyplot(fig)
 st.write("a) From elbow plot we can see the optimal value for k is 3")
 st.write("b) Scaling the values dont make any improvement as values are already smaller and near to each other")
 
-model = joblib.load("D:\\Machine_learning\\K_mean\\model.job")
+model = joblib.load("model.job")
 
 co1,co2 = st.columns(2)
 
@@ -93,8 +79,3 @@ if btn:
 
 co2.markdown("<h2 style='text-align: center; color: green;'>Dataset structure</h2>", unsafe_allow_html=True)
 co2.table(df.head())
-
-# [theme]
-# base="light"
-# primaryColor="#7ccf4f"
-# backgroundColor="#e6ffd7"
